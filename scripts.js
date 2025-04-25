@@ -1,10 +1,11 @@
 var Game = /** @class */ (function () {
     function Game() {
     }
-    Game.play = function () {
+    Game.prototype.play = function () {
+        Game.createBoard(this);
     };
-    Game.Test = function () {
-        console.log("Test");
+    Game.createBoard = function (_Game) {
+        _Game._Board = new Board();
     };
     return Game;
 }());
