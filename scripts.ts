@@ -1,11 +1,11 @@
 class Game{
-    private _Board: Board;
+    private Board: Board;
     play(){
         Game.createBoard(this);
     }
 
     static createBoard(_Game:Game){
-        _Game._Board = new Board();
+        _Game.Board = new Board();
     }
 }
 
