@@ -1,6 +1,12 @@
-class Game{
+export class Game{
     private Board: Board;
+
+    constructor(){
+        console.log("Gra wystartowała!");
+    }
+
     play(){
+        console.log("GAME");
         Game.createBoard(this);
     }
 

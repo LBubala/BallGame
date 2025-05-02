@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Game = void 0;
 var Game = /** @class */ (function () {
     function Game() {
     }
@@ -5,10 +8,11 @@ var Game = /** @class */ (function () {
         Game.createBoard(this);
     };
     Game.createBoard = function (_Game) {
-        _Game._Board = new Board();
+        _Game.Board = new Board();
     };
     return Game;
 }());
+exports.Game = Game;
 var Board = /** @class */ (function () {
     function Board() {
         this._x = 10;
