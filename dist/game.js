@@ -1,2 +1,2 @@
 import { Game } from './scripts.js';
-window.game = new Game();
+window.game = new Game(document.querySelector('#Board'));

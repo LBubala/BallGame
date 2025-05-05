@@ -6,4 +6,4 @@ declare global {
     }
 }
 
-window.game = new Game();
+window.game = new Game(document.querySelector('#Board'));
