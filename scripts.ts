@@ -2,16 +2,42 @@ export class Game{
     private Board: Board;
     public _HTMLBoard: HTMLElement;
     public Ball: Ball= new Ball();
+    private _hasGameEnded: boolean = false;
 
     constructor(GameFetcher: HTMLElement){
         console.log("Gra wystartowała!");
         this._HTMLBoard = GameFetcher;
     }
 
+    get hasGameEnded(): boolean{
+        return this._hasGameEnded;
+    }
+
+    set hasGameEnded(ended: boolean){
+        this._hasGameEnded = ended;
+    }
+
+    static Main(game: Game){
+        const main = setInterval(() => {
+            // const ballPosition = document.querySelector('#Board > .column > .cell.ball') as HTMLElement;
+            if(!game.hasGameEnded){
+                game.Ball.fallDown();
+            }
+
+            console.log('position Y: ' + game.Ball._positionY);
+            if(game.Ball._positionY >= 9){
+                console.log('Game Ended!')
+                clearInterval(main);
+                game.hasGameEnded = true;
+            }
+        }, 1000)
+    }
+
     play(){
         console.log("GAME!");
         Game.createBoard(this);
         this.Ball.renderBall(document.querySelector("#Board > .column[data-column='0'] > .cell[data-row='0']"));
+        Game.Main(this);
     }
 
     static createBoard(_Game:Game){
@@ -46,8 +72,20 @@ class Board{
 }
 
 class Ball{
+    public _positionX:number = 0;
+    public _positionY:number = 0;
+
     renderBall(spawn:HTMLElement){
         // spawn.innerHTML = "<img id='Ball' alt='ball' src='ball.webp'/>";
         spawn.classList.add('ball');
+    }
+
+    fallDown(){
+        if(document.querySelector('#Board > .column > .ball')){
+            document.querySelector('#Board > .column > .ball').classList.remove('ball');
+        }
+        this._positionY++;
+        console.log('X: ' + this._positionX + ' || Y: ' + this._positionY );
+        document.querySelector(`#Board > .column[data-column='${this._positionX}'] > .cell[data-row='${this._positionY}']`).classList.add('ball');
     }
 }

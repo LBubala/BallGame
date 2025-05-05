@@ -7,3 +7,4 @@ declare global {
 }
 
 window.game = new Game(document.querySelector('#Board'));
+
