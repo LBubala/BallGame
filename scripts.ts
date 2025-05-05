@@ -24,7 +24,6 @@ export class Game{
                 game.Ball.fallDown();
             }
 
-            console.log('position Y: ' + game.Ball._positionY);
             if(game.Ball._positionY >= 9){
                 console.log('Game Ended!')
                 clearInterval(main);
@@ -85,7 +84,6 @@ class Ball{
             document.querySelector('#Board > .column > .ball').classList.remove('ball');
         }
         this._positionY++;
-        console.log('X: ' + this._positionX + ' || Y: ' + this._positionY );
         document.querySelector(`#Board > .column[data-column='${this._positionX}'] > .cell[data-row='${this._positionY}']`).classList.add('ball');
     }
 }
