@@ -36,7 +36,7 @@ export class Game{
         console.log("GAME!");
         Game.createBoard(this);
         this.Ball.renderBall(document.querySelector("#Board > .column[data-column='0'] > .cell[data-row='0']"));
-        Game.Main(this);
+        // Game.Main(this);
     }
 
     static createBoard(_Game:Game){

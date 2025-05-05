@@ -17,7 +17,6 @@ export class Game {
             if (!game.hasGameEnded) {
                 game.Ball.fallDown();
             }
-            console.log('position Y: ' + game.Ball._positionY);
             if (game.Ball._positionY >= 9) {
                 console.log('Game Ended!');
                 clearInterval(main);
@@ -29,7 +28,7 @@ export class Game {
         console.log("GAME!");
         Game.createBoard(this);
         this.Ball.renderBall(document.querySelector("#Board > .column[data-column='0'] > .cell[data-row='0']"));
-        Game.Main(this);
+        // Game.Main(this);
     }
     static createBoard(_Game) {
         _Game.Board = new Board();
@@ -73,7 +72,6 @@ class Ball {
             document.querySelector('#Board > .column > .ball').classList.remove('ball');
         }
         this._positionY++;
-        console.log('X: ' + this._positionX + ' || Y: ' + this._positionY);
         document.querySelector(`#Board > .column[data-column='${this._positionX}'] > .cell[data-row='${this._positionY}']`).classList.add('ball');
     }
 }
