@@ -31,7 +31,7 @@ body{
 }
 
 .cell.ball{
-    background-image: url("ball.webp");
+    background-image: url("../public/ball.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

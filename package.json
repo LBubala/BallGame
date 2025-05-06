@@ -2,5 +2,12 @@
   "type": "module",
   "devDependencies": {
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.12",
+    "express": "^5.1.0",
+    "ts-node": "^10.9.2",
+    "undici-types": "^7.8.0"
   }
 }

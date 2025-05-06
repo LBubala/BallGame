@@ -6,9 +6,10 @@ declare global {
     }
 }
 
-window.game = new Game(document.querySelector('#Board'));
+window.game = new Game(document.querySelector('#Board') as HTMLCanvasElement);
 
 document.querySelector('#StartGame').addEventListener('click', ()=>{
     window.game.play();
     Game.Main(window.game);
 })
+
